@@ -1,7 +1,7 @@
 
 
-function DesignCard({course}) {
-    console.log(course);
+function DesignCard({course,handlebutton}) {
+    // console.log(course);
     const {id,name,description,photo,price,credit} = course
   return (
     <div >
@@ -10,7 +10,7 @@ function DesignCard({course}) {
   <figure><img src={photo} alt="" /></figure>
   <div className="card-body">
     <h2 className="card-title">{name}</h2>
-    <p>{description.slice(0,60)}</p>
+    <p>{description}</p>
  <div className="flex items-center justify-between">
  <div className="flex">
    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mr-2">
@@ -27,7 +27,7 @@ function DesignCard({course}) {
     </div>
  </div>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary w-full">Select</button>
+      <button onClick={()=>{handlebutton(course)}}  className="btn btn-primary w-full">Select</button>
     </div>
   </div>
 </div>

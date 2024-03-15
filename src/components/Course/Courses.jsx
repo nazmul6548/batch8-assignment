@@ -1,7 +1,22 @@
+import React, { useState } from 'react';
+
+// import RightCard from "../Card/RightCard";
 import DesignCard from "../designcard/DesignCard";
 
 
+
 function Courses({courses}) {
+  const [buttons,setButton] = useState([]);
+
+
+  const handlebutton =course => {
+    // console.log("mis");
+    const newButton = [...buttons,course]
+    // console.log(course);
+setButton(newButton)
+
+console.log(button);
+  }
   
   // console.log(courses);
   return (
@@ -12,16 +27,14 @@ function Courses({courses}) {
 <div className="grid grid-cols-3 gap-16 col-span-9">
 
 {
-courses.map(course => (<DesignCard key={courses.id} course={course}></DesignCard>))
+courses.map(course => (<DesignCard key={courses.id} course={course} handlebutton={handlebutton}></DesignCard>))
 }
 
 </div>
 <div className="grid col-span-3">
-  <div className="">
-  <h1 className="pb-4 font-bold">Credit our remming 7 hours</h1>
-  <hr />
-  <h2 className="font-bold pt-4">Course Name</h2>
-  </div>
+  
+ <DesignCard buttons={buttons}></DesignCard>
+  
 </div>
 </div>
   </>
@@ -30,3 +43,8 @@ courses.map(course => (<DesignCard key={courses.id} course={course}></DesignCard
 
  export default Courses
 // export { Courses, DesignCard };
+// export { Courses, DesignCard };
+// Courses.prototype ={
+//   course : prototype.object.isRequired,
+//   courses :prototype.func
+// }
